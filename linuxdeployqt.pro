@@ -14,13 +14,19 @@ HEADERS += shared.h
 SOURCES += main.cpp \
     shared.cpp
 
+OTHER_FILES += .qmake.conf
+
 DEFINES -= QT_USE_QSTRINGBUILDER #leads to compile errors if not disabled
 
 # versioning
 # don't break the quotes -- at the moment, the shell commands are injected into the Makefile to have them run on every
 # build and not during configure time
 
-DEFINES += LINUXDEPLOYQT_GIT_COMMIT="'\"$(shell cd $$PWD && git rev-parse --short HEAD)\"'"
+_LINUXDEPLOYQT_GIT_COMMIT = "$$system("cd $$PWD && git rev-parse --short HEAD")"
+message( "LINUXDEPLOYQT_GIT_COMMIT = " $$_LINUXDEPLOYQT_GIT_COMMIT )
+
+# DEFINES += LINUXDEPLOYQT_GIT_COMMIT="'\"$(shell cd $$PWD && git rev-parse --short HEAD)\"'"
+DEFINES += LINUXDEPLOYQT_GIT_COMMIT="'\"$$_LINUXDEPLOYQT_GIT_COMMIT\"'"
 
 DEFINES += BUILD_DATE="'\"$(shell env LC_ALL=C date -u '+%Y-%m-%d %H:%M:%S %Z')\"'"
 
