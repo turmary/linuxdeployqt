@@ -200,7 +200,7 @@ int main(int argc, char **argv)
         // openSUSE Leap 15.0 uses glibc 2.26 and is used on OBS
         // Ubuntu Xenial (16.04) uses glibc 2.23
         // Ubuntu Bionic (18.04) uses glibc 2.27
-        if (strverscmp (glcv, "2.28") >= 0) {
+        if (0 && strverscmp (glcv, "2.32") >= 0) {
             qInfo() << "ERROR: The host system is too new.";
             qInfo() << "Please run on a system with a glibc version no newer than what comes with the oldest";
             qInfo() << "currently still-supported mainstream distribution (Ubuntu Bionic), which is glibc 2.27.";

@@ -25,8 +25,8 @@ DEFINES -= QT_USE_QSTRINGBUILDER #leads to compile errors if not disabled
 _LINUXDEPLOYQT_GIT_COMMIT = "$$system("cd $$PWD && git rev-parse --short HEAD")"
 message( "LINUXDEPLOYQT_GIT_COMMIT = " $$_LINUXDEPLOYQT_GIT_COMMIT )
 
-# DEFINES += LINUXDEPLOYQT_GIT_COMMIT="'\"$(shell cd $$PWD && git rev-parse --short HEAD)\"'"
-DEFINES += LINUXDEPLOYQT_GIT_COMMIT="'\"$$_LINUXDEPLOYQT_GIT_COMMIT\"'"
+DEFINES += LINUXDEPLOYQT_GIT_COMMIT="'\"$(shell cd $$PWD && git rev-parse --short HEAD)\"'"
+# DEFINES += LINUXDEPLOYQT_GIT_COMMIT="'\"$$_LINUXDEPLOYQT_GIT_COMMIT\"'"
 
 DEFINES += BUILD_DATE="'\"$(shell env LC_ALL=C date -u '+%Y-%m-%d %H:%M:%S %Z')\"'"
 
